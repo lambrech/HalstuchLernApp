@@ -1,0 +1,52 @@
+@page "/category/{categoryId}"
+@inject ContentService ContentService
+
+@if (_category == null)
+{
+    <MudProgressLinear Color="Color.Primary" Indeterminate="true" Class="my-4" />
+}
+else
+{
+    <PageTitle>@_category.Title – HalstuchLernApp</PageTitle>
+
+    <MudButton Href="" Variant="Variant.Text" Color="Color.Primary" StartIcon="@Icons.Material.Filled.ArrowBack" Class="mb-4">
+        Zurück zur Übersicht
+    </MudButton>
+
+    <MudText Typo="Typo.h4" Class="mb-2">@_category.Title</MudText>
+    <MudText Typo="Typo.body1" Class="mb-6">@_category.Description</MudText>
+
+    <MudGrid>
+        @foreach (var topic in _category.Topics)
+        {
+            <MudItem xs="12" sm="6" lg="4">
+                <MudCard Elevation="2" Class="h-100 d-flex flex-column">
+                    <MudCardContent>
+                        <MudText Typo="Typo.h6">@topic.Title</MudText>
+                        @if (!string.IsNullOrEmpty(topic.Subtitle))
+                        {
+                            <MudText Typo="Typo.caption" Class="mud-text-secondary">@topic.Subtitle</MudText>
+                        }
+                    </MudCardContent>
+                    <MudCardActions Class="mt-auto">
+                        <MudButton Variant="Variant.Text" Color="Color.Primary"
+                                   Href="@($"topic/{_category.Id}/{topic.Id}")">Lernen</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        }
+    </MudGrid>
+}
+
+@code {
+    [Parameter]
+    public string? CategoryId { get; set; }
+
+    private LearningCategory? _category;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var content = await ContentService.GetContentAsync();
+        _category = content.Categories.FirstOrDefault(c => c.Id == CategoryId);
+    }
+}

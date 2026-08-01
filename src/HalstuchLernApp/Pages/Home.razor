@@ -1,0 +1,65 @@
+@page "/"
+@inject ContentService ContentService
+
+<PageTitle>HalstuchLernApp – CVJM Stetten</PageTitle>
+
+<MudText Typo="Typo.h4" Class="mb-2">Willkommen!</MudText>
+<MudText Typo="Typo.body1" Class="mb-6">
+    Hier kannst du die Inhalte für die Halstuchprüfung bzw. Aufnahmeprüfung im CVJM Stetten lernen.
+</MudText>
+
+@if (_content == null)
+{
+    <MudProgressLinear Color="Color.Primary" Indeterminate="true" Class="my-4" />
+}
+else
+{
+    <MudGrid>
+        @foreach (var category in _content.Categories)
+        {
+            <MudItem xs="12" md="6">
+                <MudCard Elevation="2" Class="h-100">
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h5">@category.Title</MudText>
+                        </CardHeaderContent>
+                        <CardHeaderActions>
+                            <MudIconButton Icon="@GetCategoryIcon(category.Icon)" Color="Color.Primary" Disabled="true" />
+                        </CardHeaderActions>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText Typo="Typo.body2">@category.Description</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Text" Color="Color.Primary"
+                                   Href="@($"category/{category.Id}")">Themen anzeigen</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        }
+    </MudGrid>
+
+    <MudPaper Elevation="0" Class="mt-8 pa-4" Style="background: var(--mud-palette-surface);">
+        <MudText Typo="Typo.h6" Class="mb-2">Tipp</MudText>
+        <MudText Typo="Typo.body2">
+            Du kannst diese App auch auf deinem Handy installieren. Tippe dazu im Browser auf „Zum Home-Bildschirm hinzufügen“.
+            So stehen dir die Lerninhalte auch offline zur Verfügung.
+        </MudText>
+    </MudPaper>
+}
+
+@code {
+    private ContentModel? _content;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _content = await ContentService.GetContentAsync();
+    }
+
+    private string GetCategoryIcon(string icon) => icon switch
+    {
+        "School" => Icons.Material.Filled.School,
+        "People" => Icons.Material.Filled.People,
+        _ => Icons.Material.Filled.MenuBook
+    };
+}

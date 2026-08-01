@@ -1,0 +1,193 @@
+{
+  "categories": [
+    {
+      "id": "aufnahme",
+      "title": "Aufnahmeprüfung",
+      "description": "Alles, was du für die Aufnahmeprüfung als Jungscharler im CVJM Stetten wissen musst.",
+      "icon": "School",
+      "topics": [
+        {
+          "id": "zielsaetze",
+          "title": "Unsere Zielsätze",
+          "content": "Als Jungscharler will ich dem Herrn Jesus Christus nachfolgen, will täglich auf sein Wort hören, und ihn bitten, dass er mir hilft, danach zu leben.\n\nIch will sein: gehorsam und treu im Elternhaus, wahrhaftig und fleißig in der Schule, allezeit kameradschaftlich und dienstbereit.\n\nMein Leben soll dem Herrn Jesus Christus gehören."
+        },
+        {
+          "id": "gebote",
+          "title": "Gottes gute Gebote an sein Volk",
+          "subtitle": "2. Mose 20",
+          "items": [
+            "Ich bin der Herr, dein Gott, der dich aus Ägyptenland geführt hat. Du sollst keine anderen Götter neben mir haben.",
+            "Du sollst den Namen Gottes nicht missbrauchen.",
+            "Du sollst den Feiertag heiligen.",
+            "Du sollst Vater und Mutter ehren.",
+            "Du sollst nicht töten.",
+            "Du sollst nicht ehebrechen.",
+            "Du sollst nicht stehlen.",
+            "Du sollst nicht falsch Zeugnis reden wider deinen Nächsten.",
+            "Du sollst nicht begehren deines Nächsten Haus.",
+            "Du sollst nicht begehren deines Nächsten Weib, Knecht, Magd, Vieh, oder alles, was sein ist."
+          ]
+        },
+        {
+          "id": "bibelgeschichte",
+          "title": "Ich kenne meine Bibel",
+          "content": "Erzähle eine biblische Geschichte und überlege, was du an diesem Text besonders gut und wichtig findest."
+        },
+        {
+          "id": "vater-unser",
+          "title": "Das Vater Unser",
+          "subtitle": "Matthäus 6, 9 ff",
+          "content": "Vater unser im Himmel! Geheiligt werde dein Name. Dein Reich komme. Dein Wille geschehe, wie im Himmel so auf Erden. Unser tägliches Brot gib uns heute. Und vergib uns unsere Schuld, wie auch wir vergeben unsern Schuldigern. Und führe uns nicht in Versuchung, sondern erlöse uns von dem Bösen. Denn dein ist das Reich und die Kraft und die Herrlichkeit in Ewigkeit. Amen."
+        },
+        {
+          "id": "berichte",
+          "title": "Berichte uns",
+          "content": "Wie bist du in die Jungschar gekommen? Warum bist du mit zur Freizeit gekommen? Was wollen wir?"
+        },
+        {
+          "id": "losungsworte",
+          "title": "Losungsworte",
+          "sections": [
+            {
+              "title": "Jungscharlosung",
+              "text": "Wie kann ein Junge/ein Mädchen seinen/ihren Weg unsträflich gehen? Wenn er/sie sich hält an Gottes Wort. (Psalm 119, 9)"
+            },
+            {
+              "title": "Jungschar-Weltbund-Losung",
+              "text": "Auf dass sie alle eins seien. (Johannes 17, 21)"
+            },
+            {
+              "title": "Jahreslosung 2025",
+              "text": "Prüft alles, und das Gute behaltet. (1. Thessalonicher 5, 21)"
+            }
+          ],
+          "verses": [
+            "Also hat Gott die Welt geliebt, dass er seinen einzigen Sohn gab, auf dass alle, die an ihn glauben, nicht verloren werden, sondern das ewige Leben haben. (Johannes 3, 16)",
+            "Wenn wir unsere Sünden bekennen, so ist er treu und gerecht, dass er uns die Sünden vergibt und uns reinigt von aller Untugend. (1. Johannes 1, 9)"
+          ]
+        },
+        {
+          "id": "abzeichen",
+          "title": "Abzeichen und ihre Bedeutung",
+          "sections": [
+            {
+              "title": "Ankerkreuz",
+              "text": "Zeichen der Jungscharen. Im Mittelpunkt unserer Gemeinschaft steht das Kreuz des Herrn Jesus Christus. Er ist uns Hilfe und Halt, Retter in Gefahr. Er bringt uns zum Ziel."
+            },
+            {
+              "title": "Eichenkreuz",
+              "text": "Zeichen der Jungenschaft und Sportarbeit. Über der Sünde, dem Bösen (schwarz) steht das Kreuz der Reinheit (weiß), Jesus Christus. Er gibt uns Kraft zum Sieg (grün)."
+            },
+            {
+              "title": "CVJM-Dreieck",
+              "text": "Zeichen des gesamten Christlichen Vereins Junger Menschen. Unsere Arbeit will jungen Menschen an Leib, Seele und Geist in gleicher Weise dienen und helfen."
+            },
+            {
+              "title": "CVJM-Weltbund",
+              "text": "Die aufgeschlagene Bibel inmitten der Erdteile. Das Evangelium von der Liebe Jesu ist Inhalt der Verkündigung auf der ganzen Welt. Darin sind sich alle Mitarbeiter eins."
+            }
+          ]
+        },
+        {
+          "id": "lieder",
+          "title": "Lieder",
+          "sections": [
+            {
+              "title": "Wir sind die junge Schar (Nr. 75)",
+              "text": "1. Wir sind die junge Schar, haben einen Herrn, er führt uns wunderbar und ist niemals fern.\n2. Wir sind die junge Schar, glauben an sein Wort, das ändert ganz und gar und wirkt immer fort.\n3. Wir sind die junge Schar, lieben, die er liebt und die von Jahr zu Jahr lebt, weil er vergibt.\n4. Wir sind die junge Schar, hoffen auf den Tag, da Jesus kommt fürwahr, drum, so sei’s gewagt."
+            },
+            {
+              "title": "Lass mich an dich glauben (Nr. 44)",
+              "text": "1. Lass mich an dich glauben, wie Abraham es tat. Was kann dem geschehen, der solchen Glauben hat. Seinen Sohn führt er zum Brandaltar, zu opfern ihn, wie’s ihm von Gott befohlen war. Lass mich an dich glauben, wie Abraham es tat.\n2. Lass mich an dich glauben, wie Daniel es tat. Was kann dem geschehen, der solchen Glauben hat. Sie warfen ihn den Löwen hin, er betete zu Gott und der beschützte ihn. Lass mich an dich glauben, wie Daniel es tat.\n3. Lass mich an dich glauben, wie Simeon es tat. Was kann dem geschehen, der solchen Glauben hat. Geduldig blieb er Jahr für Jahr, bis Christus er gesehn, wie’s ihm verheißen war. Lass mich an dich glauben, wie Simeon es tat.\n4. Lass mich an dich glauben, wie Stephanus es tat. Was kann dem geschehen, der solchen Glauben hat. Sie steinigten zu Tode ihn, er betete zu Gott und der erhörte ihn. Lass mich an dich glauben, wie Stephanus es tat."
+            },
+            {
+              "title": "Vergiss nicht zu danken (Nr. 14)",
+              "text": "Refr. Barmherzig, geduldig und gnädig ist er, vielmehr als ein Vater es kann. Er warf unsre Sünden ins äußerste Meer. Kommt, betet den ewigen an!\n\n1. Vergiss nicht zu danken dem ewigen Herrn, er hat dir viel Gutes getan. Bedenke, in Jesus vergibt er dir gern! Du darfst ihm, so wie du bist, nahn.\n2. Du kannst ihm vertrauen in dunkelster Nacht, wenn alles verloren erscheint. Er liebt dich, auch wenn du ihm Kummer gemacht, ist näher als je du gemeint.\n3. Im Danken kommt Neues ins Leben hinein, ein Wünschen, das nie du gekannt; dass jeder wie du Gottes Kind möchte sein, vom Vater zum Erben ernannt.\n4. In Jesus gehörst du zur ewigen Welt, zum Glaubensgehorsam befreit. Er hat dich in seine Gemeinde gestellt und macht dich zum Dienen bereit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maedchen-jungen",
+      "title": "Mädchenschaft / Jungenschaft",
+      "description": "Inhalte für die Mädchenschafts- und Jungenschaftsprüfung.",
+      "icon": "People",
+      "topics": [
+        {
+          "id": "pariser-basis",
+          "title": "Pariser Basis",
+          "subtitle": "Die Grundlage der CVJM-Arbeit in aller Welt",
+          "content": "Die christlichen Vereine Junger Menschen haben den Zweck, solche junge Menschen miteinander zu verbinden, welche Christus nach der Heiligen Schrift als ihren Gott und Heiland anerkennen, die in ihrem Leben und Glauben seine Jünger sein und gemeinsam danach trachten, das Reich des Meisters unter jungen Menschen auszubreiten."
+        },
+        {
+          "id": "ziele",
+          "title": "Ziele der Mädchenschaft / Jungenschaft",
+          "sections": [
+            {
+              "title": "Jesus führt",
+              "text": "Jesus Christus ist der Herr, er verspricht mir täglich seine Gegenwart und will mich durch sein Wort richtig leiten. Darum suche ich im Gebet die Verbindung mit Jesus und lese die Bibel."
+            },
+            {
+              "title": "Vergebung und neues Leben",
+              "text": "Er vergibt mir meine Schuld und bietet mir ein neues Leben an. Darum bekenne ich Jesus meine Schuld und vertraue mich ihm ganz an."
+            },
+            {
+              "title": "Gemeinschaft",
+              "text": "Er lässt mich mit meinen Fragen und Problemen nicht allein, sondern stellt mir andere Christen zur Seite. Darum suche ich mit ihnen die Gemeinschaft, in der wir uns gegenseitig helfen und ergänzen."
+            },
+            {
+              "title": "Mitarbeit im Reich Gottes",
+              "text": "Er zeigt mir das Reich Gottes als Ziel der Geschichte und ruft mich zur Mitarbeit in seinem Reich. Darum will ich mit meinen Gaben und Fähigkeiten Jesus mit bestem Vermögen dienen."
+            }
+          ]
+        },
+        {
+          "id": "eichenkreuz",
+          "title": "Jungenschaftsabzeichen / Sportabzeichen",
+          "content": "Das Eichenkreuz: Über der Sünde, dem Bösen (schwarz) steht das Kreuz der Reinheit (weiß), Jesus Christus. Es gibt Kraft zum Sieg."
+        },
+        {
+          "id": "weltbundabzeichen",
+          "title": "Das CVJM Weltbundabzeichen",
+          "subtitle": "Johannes 17, 21",
+          "content": "Die aufgeschlagene Bibel inmitten der Erdteile: Das Evangelium ist die Erfüllung der Verheißungen Gottes. Es ist das Leben der Welt und des einzelnen Menschen."
+        },
+        {
+          "id": "glaubensbekenntnis",
+          "title": "Das Glaubensbekenntnis",
+          "content": "Ich glaube an Gott den Vater, den Allmächtigen, den Schöpfer des Himmels und der Erde.\n\nUnd an Jesus Christus, seinen eingeborenen Sohn, unsern Herrn, empfangen durch den Heiligen Geist, geboren von der Jungfrau Maria, gelitten unter Pontius Pilatus, gekreuzigt, gestorben und begraben, hinabgestiegen in das Reich des Todes, am dritten Tage auferstanden von den Toten, aufgefahren in den Himmel; er sitzt zur Rechten Gottes, des allmächtigen Vaters; von dort wird er kommen, zu richten die Lebenden und die Toten.\n\nIch glaube an den Heiligen Geist, die heilige christliche (katholisch: katholische) Kirche, Gemeinschaft der Heiligen, Vergebung der Sünden, Auferstehung der Toten und das ewige Leben. Amen."
+        },
+        {
+          "id": "abendmahl",
+          "title": "Die Einsetzungsworte zum Abendmahl",
+          "subtitle": "1. Korinther 11, 23-25",
+          "content": "Der Herr Jesus Christus in der Nacht, da er verraten ward, nahm er das Brot, dankte und brach’s und sprach: „Das ist mein Leib, der für euch gegeben wird, das tut zu meinem Gedächtnis“.\n\nDesgleichen nahm er auch den Kelch nach dem Mahl und sprach: „Dieser Kelch ist der neue Bund in meinem Blut, das tut, sooft ihr davon trinkt, zu meinem Gedächtnis“."
+        },
+        {
+          "id": "bibelstellen",
+          "title": "Bibelstellen",
+          "items": [
+            "1. Mose 1, 27+31: Und Gott schuf den Menschen zu seinem Bilde, zum Bilde Gottes schuf er ihn; und schuf sie als Mann und Frau. Und Gott sah an alles, was er gemacht hatte, und siehe, es war sehr gut.",
+            "Josua 1, 9: Siehe, ich habe dir geboten, dass du getrost und unverzagt seist. Lass dir nicht grauen und entsetze dich nicht; denn der Herr, dein Gott, ist mit dir in allem, was du tust.",
+            "Psalm 73, 23-28: Dennoch bleibe ich stets an dir; denn du hältst mich bei meiner rechten Hand, du leitest mich nach deinem Rat und nimmst mich am Ende mit Ehren an. Wenn ich nur dich habe, so frage ich nichts nach Himmel und Erde. Wenn mir gleich Leib und Seele verschmachtet, so bist du doch Gott, allezeit meines Herzens Trost und mein Teil. Aber das ist meine Freude, dass ich mich zu Gott halte und meine Zuversicht setze auf Gott den Herrn, dass ich verkündige all dein Tun.",
+            "Jesaja 60, 1+2: Mache dich auf und werde licht; denn dein Licht kommt, und die Herrlichkeit des Herrn geht auf über dir! Denn siehe, Finsternis bedeckt das Erdreich und Dunkel die Völker; aber über dir geht auf der Herr, und seine Herrlichkeit erscheint über dir.",
+            "Jesaja 44, 3: Denn ich will Wasser gießen auf das Durstige und Ströme auf das Dürre: ich will meinen Geist auf deine Kinder gießen und meinen Segen auf deine Nachkommen.",
+            "Johannes 6, 35: Ich bin das Brot des Lebens. Wer zu mir kommt, den wird nicht hungern; und wer an mich glaubt, den wird nimmermehr dürsten.",
+            "Johannes 6, 68: Herr, wohin sollen wir gehen? Du hast Worte des ewigen Lebens und wir haben geglaubt und erkannt, dass du bist der Heilige Gottes.",
+            "Römer 3, 30: So halten wir nun dafür, dass der Mensch gerecht werde ohne des Gesetzes Werke, allein durch den Glauben.",
+            "Apostelgeschichte 2, 38: Tut Buße und lasse sich ein jeglicher taufen auf den Namen Jesu Christi zur Vergebung eurer Sünden, so werdet ihr empfangen die Gabe des Heiligen Geistes.",
+            "1. Timotheus 1, 7: Denn Gott hat uns nicht gegeben den Geist der Furcht, sondern der Kraft und der Liebe und der Besonnenheit.",
+            "Philipper 2, 5-11: Ein jeglicher sei gesinnt, wie Jesus Christus auch war: welcher, ob er wohl in göttlicher Gestalt war, nahm er’s nicht als einen Raub, Gott gleich zu sein, sondern entäußerte sich selbst und nahm Knechtsgestalt an, ward gleich wie ein anderer Mensch und an Gebärden als ein Mensch erfunden. Er erniedrigte sich selbst und ward gehorsam bis zum Tode, ja zum Tode am Kreuz. Darum hat ihn auch Gott erhöht und hat ihm den Namen gegeben, der über alle Namen ist, dass in dem Namen Jesu sich beugen sollen aller deren Knie, die im Himmel und auf Erden und unter der Erde sind, und alle Zungen bekennen, dass Jesus Christus der Herr sei zur Ehre Gottes, des Vaters."
+          ]
+        },
+        {
+          "id": "lieder-mj",
+          "title": "Lieder",
+          "image": "images/VonGutenMaechtenLiedtext.png",
+          "imageAlt": "Liedblatt: Von guten Mächten"
+        }
+      ]
+    }
+  ]
+}

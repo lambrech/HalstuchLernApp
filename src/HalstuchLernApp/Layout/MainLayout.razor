@@ -1,0 +1,54 @@
+@inherits LayoutComponentBase
+
+<MudThemeProvider Theme="@CvjmTheme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="1" Color="Color.Primary">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        <MudImage Src="images/logo.png" Alt="CVJM Stetten Logo" Width="40" Height="36" Class="mr-3" />
+        <MudText Typo="Typo.h6" Class="ml-2">HalstuchLernApp</MudText>
+        <MudSpacer />
+        <MudIconButton Icon="@Icons.Material.Filled.Info" Color="Color.Inherit" Href="info" />
+    </MudAppBar>
+    <MudDrawer @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
+        <NavMenu />
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Large" Class="pt-4 pb-8">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    private bool _drawerOpen = true;
+
+    private void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+
+    private MudTheme CvjmTheme = new MudTheme
+    {
+        Palette = new PaletteLight
+        {
+            Primary = "#c30039",
+            Secondary = "#6d6e70",
+            AppbarBackground = "#c30039",
+            Background = "#f5f5f5",
+            Surface = "#ffffff",
+            TextPrimary = "#211e1f",
+            TextSecondary = "#6d6e70"
+        },
+        Typography = new Typography
+        {
+            H4 = new H4 { FontSize = "1.75rem", FontWeight = 600 },
+            H5 = new H5 { FontSize = "1.5rem", FontWeight = 600 },
+            H6 = new H6 { FontSize = "1.25rem", FontWeight = 600 },
+            Body1 = new Body1 { FontSize = "1.1rem", LineHeight = 1.7 },
+            Body2 = new Body2 { FontSize = "1rem", LineHeight = 1.6 }
+        }
+    };
+}

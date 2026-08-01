@@ -1,0 +1,17 @@
+<Router AppAssembly="@typeof(App).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+        <PageTitle>Nicht gefunden</PageTitle>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <MudContainer MaxWidth="MaxWidth.Small" Class="mt-8">
+                <MudAlert Severity="Severity.Warning" Class="mb-4">
+                    Diese Seite gibt es leider nicht.
+                </MudAlert>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="">Zur Startseite</MudButton>
+            </MudContainer>
+        </LayoutView>
+    </NotFound>
+</Router>

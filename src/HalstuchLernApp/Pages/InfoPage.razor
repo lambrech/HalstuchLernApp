@@ -1,0 +1,175 @@
+@page "/info"
+@inject UpdateService UpdateService
+@inject ISnackbar Snackbar
+
+<PageTitle>Info – HalstuchLernApp</PageTitle>
+
+<MudText Typo="Typo.h4" Class="mb-4">Info</MudText>
+
+<MudGrid>
+    <MudItem xs="12" md="6">
+        <MudCard Elevation="2" Class="mb-4">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">Version & Build</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudStack Spacing="2">
+                    <MudTextField @bind-Value="_version" Label="Version" Variant="Variant.Outlined" ReadOnly="true" />
+                    <MudTextField @bind-Value="_buildConfig" Label="Build-Konfiguration" Variant="Variant.Outlined" ReadOnly="true" />
+                    <MudTextField @bind-Value="_commitId" Label="Git Commit" Variant="Variant.Outlined" ReadOnly="true" />
+                    <MudTextField @bind-Value="_fullVersionText" Label="Vollständige Version" Variant="Variant.Outlined" ReadOnly="true" Lines="2" />
+                </MudStack>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+
+    <MudItem xs="12" md="6">
+        <MudCard Elevation="2" Class="mb-4">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">Service Worker & Updates</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudStack Spacing="2">
+                    <MudText>
+                        <strong>Status:</strong> @_serviceWorkerStatus
+                    </MudText>
+                    @if (_updateAvailable)
+                    {
+                        <MudAlert Severity="Severity.Success" Class="my-2">
+                            Ein Update ist verfügbar!
+                        </MudAlert>
+                    }
+                    <MudStack Row="true" Spacing="2" Wrap="Wrap.Wrap">
+                        <MudButton Variant="Variant.Outlined" Color="Color.Primary"
+                                   OnClick="CheckForUpdatesAsync" Disabled="_isCheckingUpdates">
+                            Nach Updates suchen
+                        </MudButton>
+                        <MudButton Variant="Variant.Outlined" Color="Color.Secondary"
+                                   OnClick="InstallUpdateAsync" Disabled="!_updateAvailable">
+                            Update installieren
+                        </MudButton>
+                    </MudStack>
+                </MudStack>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+
+    <MudItem xs="12">
+        <MudCard Elevation="2">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">Aktionen</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudStack Row="true" Spacing="2" Wrap="Wrap.Wrap">
+                    <MudButton Variant="Variant.Outlined" Color="Color.Primary"
+                               OnClick="ReloadPageAsync" StartIcon="@Icons.Material.Filled.Refresh">
+                        Seite neu laden
+                    </MudButton>
+                    <MudButton Variant="Variant.Outlined" Color="Color.Warning"
+                               OnClick="ReloadWithoutCacheAsync" StartIcon="@Icons.Material.Filled.Cached">
+                        Ohne Cache neu laden
+                    </MudButton>
+                    <MudButton Variant="Variant.Outlined" Color="Color.Error"
+                               OnClick="ClearCacheAsync" StartIcon="@Icons.Material.Filled.DeleteSweep">
+                        Cache leeren
+                    </MudButton>
+                </MudStack>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@code {
+    private string _version = string.Empty;
+    private string _buildConfig = string.Empty;
+    private string _commitId = string.Empty;
+    private string _fullVersionText = string.Empty;
+    private string _serviceWorkerStatus = "Initialisiere...";
+    private bool _updateAvailable = false;
+    private bool _isCheckingUpdates = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var info = Extensions.GetVersionInformation();
+        _version = info.version;
+        _buildConfig = info.buildConfig;
+        _commitId = info.commitId;
+        _fullVersionText = info.fullVersionText;
+
+        try
+        {
+            await UpdateService.RegisterForUpdateAvailableAsync(OnUpdateAvailableAsync);
+            _serviceWorkerStatus = "Bereit";
+        }
+        catch (Exception ex)
+        {
+            _serviceWorkerStatus = $"Nicht verfügbar: {ex.Message}";
+        }
+    }
+
+    private async Task OnUpdateAvailableAsync()
+    {
+        _updateAvailable = true;
+        await InvokeAsync(StateHasChanged);
+        Snackbar.Add("Ein Update ist verfügbar!", Severity.Info);
+    }
+
+    private async Task CheckForUpdatesAsync()
+    {
+        _isCheckingUpdates = true;
+        try
+        {
+            await UpdateService.CheckForUpdatesAsync();
+            Snackbar.Add("Update-Prüfung ausgeführt.", Severity.Info);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Fehler: {ex.Message}", Severity.Error);
+        }
+        finally
+        {
+            _isCheckingUpdates = false;
+        }
+    }
+
+    private async Task InstallUpdateAsync()
+    {
+        try
+        {
+            await UpdateService.InstallUpdateAsync();
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Fehler: {ex.Message}", Severity.Error);
+        }
+    }
+
+    private async Task ReloadPageAsync()
+    {
+        await UpdateService.ReloadPageAsync(false);
+    }
+
+    private async Task ReloadWithoutCacheAsync()
+    {
+        await UpdateService.ReloadPageAsync(true);
+    }
+
+    private async Task ClearCacheAsync()
+    {
+        try
+        {
+            await UpdateService.ClearCacheAsync();
+            Snackbar.Add("Cache wurde geleert.", Severity.Success);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Fehler: {ex.Message}", Severity.Error);
+        }
+    }
+}
