@@ -1,9 +1,47 @@
+## .NET / Blazor
 bin/
 obj/
 release/
 publish/
 *.user
 *.suo
+*.userosscache
+*.sln.docstates
+
+## IDEs
 .vs/
 .vscode/
+.idea/
+*.code-workspace
+
+## Logs
 *.log
+logs/
+
+## Python / Playwright
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+.venv/
+venv/
+env/
+ENV/
+
+## Node (falls später für Tools verwendet)
+node_modules/
+package-lock.json
+yarn.lock
+
+## OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## Temporäre Dateien
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
