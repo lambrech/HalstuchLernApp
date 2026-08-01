@@ -10,6 +10,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  administration: write  # required to auto-enable GitHub Pages
 
 concurrency:
   group: "pages"
