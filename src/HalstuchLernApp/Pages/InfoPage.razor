@@ -19,6 +19,10 @@
                     <MudTextField @bind-Value="_version" Label="Version" Variant="Variant.Outlined" ReadOnly="true" />
                     <MudTextField @bind-Value="_buildConfig" Label="Build-Konfiguration" Variant="Variant.Outlined" ReadOnly="true" />
                     <MudTextField @bind-Value="_commitId" Label="Git Commit" Variant="Variant.Outlined" ReadOnly="true" />
+                    @if (!string.IsNullOrEmpty(_commitUrl))
+                    {
+                        <MudLink Href="@_commitUrl" Target="_blank">Commit auf GitHub ansehen</MudLink>
+                    }
                     <MudTextField @bind-Value="_fullVersionText" Label="Vollständige Version" Variant="Variant.Outlined" ReadOnly="true" Lines="2" />
                 </MudStack>
             </MudCardContent>
@@ -90,6 +94,7 @@
     private string _buildConfig = string.Empty;
     private string _commitId = string.Empty;
     private string _fullVersionText = string.Empty;
+    private string _commitUrl = string.Empty;
     private string _serviceWorkerStatus = "Initialisiere...";
     private bool _updateAvailable = false;
     private bool _isCheckingUpdates = false;
@@ -101,6 +106,18 @@
         _buildConfig = info.buildConfig;
         _commitId = info.commitId;
         _fullVersionText = info.fullVersionText;
+
+        // Fallback für Debug-Builds ohne MSBuild-Target
+        if (_fullVersionText == _version && _version.Contains('+'))
+        {
+            var parts = _version.Split('+');
+            _version = parts[0];
+            _commitId = parts[1];
+            _fullVersionText = $"{_version} | configName:Debug | git:{_commitId}";
+            _buildConfig = "Debug";
+        }
+
+        _commitUrl = $"https://github.com/CVJM-Stetten/HalstuchLernApp/commit/{_commitId}";
 
         try
         {
