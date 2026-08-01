@@ -165,3 +165,4 @@ Die extrahierten Texte liegen unter `raw/_extracted/`.
 - [ ] Quiz-Funktion (geplant für einen späteren Schritt)
 - [ ] GitHub-Repository öffentlich schalten und GitHub Pages aktivieren
 - [ ] Echte CVJM-Abzeichen-Bilder (CVJM-Dreieck, Weltbund) integrieren, falls vorhanden
+
