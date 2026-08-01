@@ -36,6 +36,10 @@ jobs:
         # AOT is disabled for CI to keep build times reasonable on GitHub runners.
         run: dotnet publish src/HalstuchLernApp/HalstuchLernApp.csproj -c Release -o release -p:RunAOTCompilation=false
 
+      - name: Adjust base href for GitHub Pages
+        run: |
+          sed -i 's|<base href="/" />|<base href="/HalstuchLernApp/" />|' release/wwwroot/index.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
         # Hinweis: GitHub Pages muss unter Settings > Pages einmalig aktiviert
