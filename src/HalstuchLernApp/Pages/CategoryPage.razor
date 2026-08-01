@@ -43,9 +43,16 @@ else
     public string? CategoryId { get; set; }
 
     private LearningCategory? _category;
+    private string? _lastCategoryId;
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
     {
+        if (CategoryId == _lastCategoryId && _category != null)
+        {
+            return;
+        }
+
+        _lastCategoryId = CategoryId;
         var content = await ContentService.GetContentAsync();
         _category = content.Categories.FirstOrDefault(c => c.Id == CategoryId);
     }
