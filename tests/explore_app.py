@@ -8,16 +8,24 @@ Aufruf:
     cd c:\\src\\_p\\CVJM\\HalstuchLernApp
     python tests\\explore_app.py
 
+Optionen:
+    --headed    Browser sichtbar öffnen, damit man die Aktionen verfolgen kann
+
 Das Skript sucht selbst nach einem laufenden lokalen Server auf den Ports
 5000-5019. Falls keiner läuft, startet es `dotnet run` selbstständig.
 """
 
+import argparse
 import subprocess
 import sys
 import time
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
+
+# Konfiguration für die headed-Ansicht
+ACTION_DELAY_SECONDS = 1.2  # Pause zwischen Aktionen, damit man etwas sieht
+PAGE_LOAD_DELAY_SECONDS = 0.8  # Zusätzliche Pause nach dem Laden einer Seite
 
 APP_ROOT = Path(__file__).resolve().parent.parent
 PROJECT_DIR = APP_ROOT / "src" / "HalstuchLernApp"
@@ -81,6 +89,11 @@ def start_server():
     raise RuntimeError("Server konnte nicht gestartet werden.")
 
 
+def wait_a_bit(page, seconds: float = ACTION_DELAY_SECONDS):
+    """Wartet kurz, damit Aktionen in der headed-Ansicht sichtbar werden."""
+    page.wait_for_timeout(int(seconds * 1000))
+
+
 def take_screenshot(page, name: str):
     """Erstellt einen Screenshot und speichert ihn ab."""
     SCREENSHOT_DIR.mkdir(parents=True, exist_ok=True)
@@ -118,18 +131,36 @@ def main():
     else:
         print(f"Verwende laufenden Server: {BASE_URL}")
 
-    print(f"\nScreenshots werden gespeichert in: {SCREENSHOT_DIR}\n")
+    parser = argparse.ArgumentParser(
+        description="HalstuchLernApp mit Playwright erkunden und dokumentieren."
+    )
+    parser.add_argument(
+        "--headed",
+        action="store_true",
+        help="Browser-Fenster sichtbar öffnen und Aktionen verlangsamen",
+    )
+    args = parser.parse_args()
+
+    headless = not args.headed
+    delay = ACTION_DELAY_SECONDS if args.headed else 0.1
+    load_delay = PAGE_LOAD_DELAY_SECONDS if args.headed else 0.2
+
+    print(f"\nModus: {'HEADED (sichtbar)' if args.headed else 'HEADLESS'}")
+    print(f"Screenshots werden gespeichert in: {SCREENSHOT_DIR}\n")
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        browser = p.chromium.launch(headless=headless)
         context = browser.new_context(viewport={"width": 1280, "height": 720})
         page = context.new_page()
 
         # Startseite
+        print("➡️  Lade Startseite...")
         page.goto(BASE_URL)
         page.wait_for_load_state("networkidle")
+        wait_a_bit(page, load_delay)
         print("✅ Startseite geladen")
         take_screenshot(page, "00_Startseite")
+        wait_a_bit(page, delay)
 
         # Logo prüfen
         logo = page.locator('img[alt="CVJM Stetten Logo"]').first
@@ -143,16 +174,20 @@ def main():
         # Service Worker prüfen
         sw = check_service_worker(page)
         print(f"✅ Service Worker: {sw}")
+        wait_a_bit(page, delay)
 
         # Alle Routen durchlaufen
         for idx, (name, route) in enumerate(ROUTES, start=1):
             url = f"{BASE_URL}{route}"
             print(f"\n[{idx}/{len(ROUTES)}] {name} ({route})")
+            print("➡️  Navigiere...")
             try:
                 page.goto(url)
                 page.wait_for_load_state("networkidle")
+                wait_a_bit(page, load_delay)
                 take_screenshot(page, f"{idx:02d}_{name}")
                 print(f"   Titel: {page.title()}")
+                wait_a_bit(page, delay)
             except Exception as ex:
                 print(f"   ⚠️ Fehler: {ex}")
 
@@ -161,13 +196,16 @@ def main():
         page.set_viewport_size({"width": 390, "height": 844})
         page.goto(BASE_URL)
         page.wait_for_load_state("networkidle")
+        wait_a_bit(page, load_delay)
         take_screenshot(page, "99_Mobile_Startseite")
+        wait_a_bit(page, delay)
 
         # Menü auf Mobile öffnen
         menu_button = page.locator("header button").first
         if menu_button.is_visible():
+            print("➡️  Öffne mobiles Menü...")
             menu_button.click()
-            page.wait_for_timeout(300)
+            wait_a_bit(page, delay)
             take_screenshot(page, "99_Mobile_Menu")
             print("✅ Mobiles Menü geöffnet")
 
@@ -196,3 +234,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+    # Beispielaufrufe:
+    #   python tests\explore_app.py
+    #   python tests\explore_app.py --headed
