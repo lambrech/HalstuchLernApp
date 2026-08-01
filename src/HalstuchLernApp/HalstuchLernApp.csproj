@@ -8,6 +8,7 @@
     <Version>0.1.0-alpha.1</Version>
     <PublishTrimmed>true</PublishTrimmed>
     <RunAOTCompilation>true</RunAOTCompilation>
+    <WasmStripILAfterAOT>false</WasmStripILAfterAOT>
   </PropertyGroup>
 
   <Target Name="GetGitInfo" Condition="'$(Configuration)' == 'Release'">

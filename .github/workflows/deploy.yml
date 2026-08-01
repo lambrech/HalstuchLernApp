@@ -29,6 +29,9 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
+      - name: Restore workloads
+        run: dotnet workload install wasm-tools-net8
+
       - name: Publish
         run: dotnet publish src/HalstuchLernApp/HalstuchLernApp.csproj -c Release -o release
 
