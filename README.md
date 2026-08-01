@@ -114,6 +114,15 @@ Das Deployment erfolgt automatisch über GitHub Actions:
 - Auslöser: Push auf den Branch `main` oder manueller Start über `workflow_dispatch`
 - Ziel: GitHub Pages
 
+### Einmalige Einrichtung auf GitHub
+
+Bevor der Workflow erfolgreich deployen kann, muss GitHub Pages im Repository aktiviert werden:
+
+1. Im Repository auf GitHub zu **Settings** wechseln.
+2. Im linken Menü **Pages** auswählen.
+3. Unter **Build and deployment** als **Source** den Wert **GitHub Actions** auswählen.
+4. Auf **Save** klicken.
+
 > **Wichtig:** Der aktuelle lokale Branch heißt `master`. Für das Deployment muss er auf GitHub in `main` umbenannt werden, oder der Workflow muss auf `master` angepasst werden.
 
 Nach dem ersten Deployment ist die App unter einer URL wie dieser erreichbar:

@@ -10,7 +10,6 @@ permissions:
   contents: write
   pages: write
   id-token: write
-  administration: write  # required to auto-enable GitHub Pages
 
 concurrency:
   group: "pages"
@@ -39,8 +38,8 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
+        # Hinweis: GitHub Pages muss unter Settings > Pages einmalig aktiviert
+        # und als Source "GitHub Actions" ausgewählt werden.
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
