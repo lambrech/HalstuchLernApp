@@ -9,7 +9,7 @@ else
 {
     <PageTitle>@_category.Title – HalstuchLernApp</PageTitle>
 
-    <MudButton Href="" Variant="Variant.Text" Color="Color.Primary" StartIcon="@Icons.Material.Filled.ArrowBack" Class="mb-4">
+    <MudButton Href="/" Variant="Variant.Text" Color="Color.Primary" StartIcon="@Icons.Material.Filled.ArrowBack" Class="mb-4">
         Zurück zur Übersicht
     </MudButton>
 
@@ -30,7 +30,7 @@ else
                     </MudCardContent>
                     <MudCardActions Class="mt-auto">
                         <MudButton Variant="Variant.Text" Color="Color.Primary"
-                                   Href="@($"topic/{_category.Id}/{topic.Id}")">Lernen</MudButton>
+                                   Href="@($"/topic/{_category.Id}/{topic.Id}")">Lernen</MudButton>
                     </MudCardActions>
                 </MudCard>
             </MudItem>
