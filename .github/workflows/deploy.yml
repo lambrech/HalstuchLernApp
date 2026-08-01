@@ -33,7 +33,8 @@ jobs:
         run: dotnet workload install wasm-tools-net8
 
       - name: Publish
-        run: dotnet publish src/HalstuchLernApp/HalstuchLernApp.csproj -c Release -o release
+        # AOT is disabled for CI to keep build times reasonable on GitHub runners.
+        run: dotnet publish src/HalstuchLernApp/HalstuchLernApp.csproj -c Release -o release -p:RunAOTCompilation=false
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
