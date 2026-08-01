@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <title>HalstuchLernApp</title>
+    <script>
+        // GitHub Pages 404 fallback for Blazor WebAssembly client-side routing.
+        // Stores the requested path and reloads the app at the root.
+        var base = '/HalstuchLernApp/';
+        var path = window.location.pathname;
+        var search = window.location.search;
+        var hash = window.location.hash;
+
+        if (path.indexOf(base) === 0) {
+            path = path.substring(base.length);
+        }
+
+        var redirectUrl = base + '?' + (path ? 'path=' + encodeURIComponent(path) : '') + search.replace('?', '&') + hash;
+        window.location.replace(redirectUrl);
+    </script>
+</head>
+<body>
+    Weiterleitung zur App...
+</body>
+</html>

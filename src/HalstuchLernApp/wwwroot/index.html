@@ -27,6 +27,16 @@
         <a class="dismiss">🗙</a>
     </div>
 
+    <script>
+        // GitHub Pages client-side routing support:
+        // If the user landed here via 404.html fallback, restore the original path.
+        var params = new URLSearchParams(window.location.search);
+        var path = params.get('path');
+        if (path) {
+            var url = window.location.origin + window.location.pathname + path + window.location.hash;
+            window.history.replaceState(null, '', url);
+        }
+    </script>
     <script src="_content/MudBlazor/MudBlazor.min.js"></script>
     <script src="sw-registrator.js"></script>
     <script src="_framework/blazor.webassembly.js"></script>
