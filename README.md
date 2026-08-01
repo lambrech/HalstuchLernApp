@@ -116,19 +116,21 @@ Das Deployment erfolgt automatisch über GitHub Actions:
 
 ### Einmalige Einrichtung auf GitHub
 
-Bevor der Workflow erfolgreich deployen kann, muss GitHub Pages im Repository aktiviert werden:
+Bevor der Workflow das erste Mal erfolgreich deployen kann, muss GitHub Pages im Repository aktiviert werden:
 
 1. Im Repository auf GitHub zu **Settings** wechseln.
 2. Im linken Menü **Pages** auswählen.
 3. Unter **Build and deployment** als **Source** den Wert **GitHub Actions** auswählen.
 4. Auf **Save** klicken.
 
-> **Wichtig:** Der aktuelle lokale Branch heißt `master`. Für das Deployment muss er auf GitHub in `main` umbenannt werden, oder der Workflow muss auf `master` angepasst werden.
+Sobald Pages aktiv ist, wird bei jedem Push auf `main` automatisch deployed.
 
-Nach dem ersten Deployment ist die App unter einer URL wie dieser erreichbar:
+### Live-URL
+
+Die App ist aktuell hier erreichbar:
 
 ```
-https://<dein-github-username>.github.io/HalstuchLernApp/
+https://lambrech.github.io/HalstuchLernApp/
 ```
 
 ## Versionierung
